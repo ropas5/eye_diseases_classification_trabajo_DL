@@ -24,3 +24,14 @@ La metodología consistira en entrenar dos modelos de clasificación:
 - Un modelo complejo.
 
 El modelo baselina irá complejizando progresivamente, mientras que el modelo complejo se irá simplificando, con el objetivo de encontrat dos modelos que tengan resultados similares, y así analizar como afecta la complejidad del modelo al rendimiento.
+
+ Métricas a utilizar
+
+Para evaluar los modelos de clasificación se usarán:
+- Accuracy: porcentaje de predicciones correctas.
+- F1-score: balance entre precision y recall.
+- Confusion Matrix: para analizar errores por clase.
+
+
+
+Los datos no estan en el repositorio. El codigo los descarga al ejecutarlo la primera vez. Usando la API de kaggle
