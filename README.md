@@ -40,14 +40,16 @@ eye_diseases_classification_trabajo_DL/
 ├─ README.md
 ├─ requirements.txt
 ├─ .gitignore
-├─ notebooks/
+├─ nootbooks/
 │   └─ 01_EDA.ipynb
 ├─ data/
-│   └─ raw/                # datos descargados/descomprimidos (IGNORADOS por git)
-│       └─ dataset/
-│           └─ cataract
-│           └─ diabetic_retinopathy
-│           └─ glaucoma
-│           └─ normal          
+│   ├─ raw/                # datos descargados/descomprimidos (IGNORADOS por git)
+│   │   └─ dataset/
+│   │        ├─ cataract
+│   │        ├─ diabetic_retinopathy
+│   │        ├─ glaucoma
+│   │        ├─ normal
+│   └─ processed/
+         └─ model_results.csv          
 
 Los datos no estan en el repositorio. El codigo los descarga al ejecutarlo la primera vez. Usando la API de kaggle.  **Es necesario tener un API de kaggle una para ejecutar la nootbook en Colab**
