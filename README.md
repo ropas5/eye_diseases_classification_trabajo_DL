@@ -43,6 +43,11 @@ eye_diseases_classification_trabajo_DL/
 ├─ notebooks/
 │   └─ 01_EDA.ipynb
 ├─ data/
-│   └─ raw/          # datos descargados/descomprimidos (IGNORADOS por git)
+│   └─ raw/                # datos descargados/descomprimidos (IGNORADOS por git)
+│       └─ dataset/
+│           └─ cataract
+│           └─ diabetic_retinopathy
+│           └─ glaucoma
+│           └─ normal          
 
-Los datos no estan en el repositorio. El codigo los descarga al ejecutarlo la primera vez. Usando la API de kaggle
+Los datos no estan en el repositorio. El codigo los descarga al ejecutarlo la primera vez. Usando la API de kaggle.  **Es necesario tener un API de kaggle una para ejecutar la nootbook en Colab**
