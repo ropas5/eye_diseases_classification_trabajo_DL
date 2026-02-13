@@ -33,5 +33,16 @@ Para evaluar los modelos de clasificación se usarán:
 - Confusion Matrix: para analizar errores por clase.
 
 
+Estructura del repositorio
+
+eye_diseases_classification_trabajo_DL/
+│
+├─ README.md
+├─ requirements.txt
+├─ .gitignore
+├─ notebooks/
+│   └─ 01_EDA.ipynb
+├─ data/
+│   └─ raw/          # datos descargados/descomprimidos (IGNORADOS por git)
 
 Los datos no estan en el repositorio. El codigo los descarga al ejecutarlo la primera vez. Usando la API de kaggle
