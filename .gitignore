@@ -1,2 +1,4 @@
 data/raw/
 *.zip
+*.code-workspace
+*.json
