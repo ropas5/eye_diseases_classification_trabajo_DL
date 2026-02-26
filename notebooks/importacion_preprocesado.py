@@ -98,8 +98,10 @@ def preprocesamiento(X, y):
     # Normalización de los datos
     X_norm = X.astype("float32")/255.0
     
-    # Creacion de train y test
+    # Creacion de train(60%), validacion(20%) y test(20%)
     random=42
-    X_train, X_test, y_train, y_test = train_test_split(X_norm, y_cat, train_size=0.7 ,random_state=random ,shuffle=True)
 
-    return X_train, X_test, y_train, y_test
+    X_train_val, X_test, y_train_val, y_test = train_test_split(X_norm, y_cat, test_size=0.2, random_state=random, shuffle=True)
+    X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.25, random_state=random, shuffle=True) 
+
+    return X_train, X_val, X_test, y_train, y_val, y_test
