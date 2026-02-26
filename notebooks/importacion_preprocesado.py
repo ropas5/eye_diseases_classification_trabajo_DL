@@ -34,6 +34,7 @@ def download_and_load_data( target_size=(512,512)):
         print("Dataset no encontrado, descargando y extrayendo...")
         if IN_COLAB:
             print("Ejecutando en Colab")
+            os.system("pip install kaggle")
             from google.colab import files
             kaggle_json_path = "/root/.kaggle/kaggle.json"
             if not os.path.exists(kaggle_json_path):
