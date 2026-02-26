@@ -2,3 +2,4 @@ data/raw/
 *.zip
 *.code-workspace
 *.json
+*desktop.ini
