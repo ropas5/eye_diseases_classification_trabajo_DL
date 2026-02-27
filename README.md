@@ -35,7 +35,7 @@ Para evaluar los modelos de clasificación se usarán:
 
 ## Resultados:
 
-| Modelo              | Parametros| Epochs | Train Accuracy | Val Accuracy | Test Accuracy | Train F1 | Val F1 | Test F1 |
+| Modelo              | Parametros | Epochs | Train Accuracy | Val Accuracy | Test Accuracy | Train F1 | Val F1 | Test F1 |
 |---------------------|------------|--------|----------------|--------------|---------------|---------|---------|---------|
 | Modelo Simple       | 196612     | 1000   | 0.99           | 0.79         | 0.80          | 0.99    | 0.79    | 0.80    |
 | Random Forest       | 47844      | -      | 1              | 0.73         | 0.71          | 1       | 0.76    |  0.75   |
