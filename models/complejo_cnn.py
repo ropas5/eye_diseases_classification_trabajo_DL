@@ -8,13 +8,13 @@ from tensorflow.keras.regularizers import l1_l2, l2
 def create_model(input_shape=(128,128,3), num_classes=4, l_rate=0.01):
     model = Sequential()
     # Capa 1
-    model.add(Conv2D(64, kernel_size=7, activation='relu', input_shape=input_shape))
+    model.add(Conv2D(12, kernel_size=7, activation='relu', input_shape=input_shape))
     model.add(BatchNormalization())
     model.add(Dropout(0.3))
     model.add(MaxPooling2D())
     
     # Capa 2
-    model.add(Conv2D(64, kernel_size=7, activation='relu'))
+    model.add(Conv2D(12, kernel_size=3, activation='relu'))
     model.add(BatchNormalization())
     model.add(Dropout(0.3))
     model.add(MaxPooling2D())
