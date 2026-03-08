@@ -8,7 +8,7 @@ import numpy as np
 from PIL import Image
 
 
-def download_and_load_data( target_size=(512,512)):
+def descarga_y_carga_de_datos(target_size=(512,512)):
     """
     Descarga, descomprime y carga imágenes como X (arrays) e y (labels).
     Funciona en Colab y en entorno local.
