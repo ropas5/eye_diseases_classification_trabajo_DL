@@ -10,7 +10,7 @@ def create_model(input_shape=(128,128,3), num_classes=4, l_rate=0.01):
     model.add(Conv2D(32, kernel_size=3, activation="relu"))
     model.add(Conv2D(64, kernel_size=3, activation="relu"))
 
-    model.add(GlobalAveragePooling2D())
+    model.add(Flatten())
     # Flatten y capa de salida
     model.add(Dense(num_classes, activation='softmax'))
 
