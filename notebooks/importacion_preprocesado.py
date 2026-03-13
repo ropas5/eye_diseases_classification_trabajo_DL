@@ -8,47 +8,49 @@ import numpy as np
 from PIL import Image
 
 
-def descarga_y_carga_de_datos(target_size=(512,512)):
-    """
-    Descarga, descomprime y carga imágenes como X (arrays) e y (labels).
-    Funciona en Colab y en entorno local.
-    """
-    # Detectar si estamos en Colab
+def descarga_y_carga_de_datos(target_size=(512,512), uploader=None):
     try:
         import google.colab
         IN_COLAB = True
         path = "data/raw"
-        
     except:
         IN_COLAB = False
         path = "../data/raw"
-    
-    
+
     os.makedirs(path, exist_ok=True)
-    
+
     dataset_path = os.path.join(path, "dataset")
     zip_file_path = os.path.join(path, "eye-diseases-classification.zip")
-    
-    # --- DESCARGA Y EXTRACCIÓN (solo si no existe dataset) ---
+
     if not os.path.exists(dataset_path):
         print("Dataset no encontrado, descargando y extrayendo...")
         if IN_COLAB:
-            print("Ejecutando en Colab")
-            os.system("pip install kaggle")
-            from google.colab import files
             kaggle_json_path = "/root/.kaggle/kaggle.json"
             if not os.path.exists(kaggle_json_path):
-                print("Sube tu kaggle.json")
-                files.upload()  # abre diálogo
-                os.makedirs("/root/.kaggle", exist_ok=True)
-                os.system("mv kaggle.json /root/.kaggle/")
-                os.system("chmod 600 /root/.kaggle/kaggle.json")
+                # Intentar leer del widget si se pasó
+                if uploader and len(uploader.value) > 0:
+                    print("Leyendo kaggle.json del widget...")
+                    uploaded_file = list(uploader.value.values())[0]
+                    content = uploaded_file['content']
+                    os.makedirs("/root/.kaggle", exist_ok=True)
+                    with open(kaggle_json_path, 'wb') as f:
+                        f.write(content)
+                    os.system("chmod 600 /root/.kaggle/kaggle.json")
+                    print("kaggle.json instalado correctamente.")
+                else:
+                    # Fallback: diálogo web (solo funciona en Colab web)
+                    print("Sube tu kaggle.json")
+                    from google.colab import files
+                    files.upload()
+                    os.makedirs("/root/.kaggle", exist_ok=True)
+                    os.system("mv kaggle.json /root/.kaggle/")
+                    os.system("chmod 600 /root/.kaggle/kaggle.json")
+
             os.system(f"kaggle datasets download -d gunavenkatdoddi/eye-diseases-classification -p {path} --force")
         else:
             print("Ejecutando en local")
             os.system(f"kaggle datasets download -d gunavenkatdoddi/eye-diseases-classification -p {path} --force")
-        
-        # Descomprimir
+
         if os.path.exists(zip_file_path):
             with zipfile.ZipFile(zip_file_path, 'r') as zip_ref:
                 zip_ref.extractall(path)
@@ -80,7 +82,7 @@ def descarga_y_carga_de_datos(target_size=(512,512)):
     X = np.stack(imgs)
     y = np.array(labels)
     print("X shape:", X.shape, "y shape:", y.shape)
-    
+
     return X, y
 
 
