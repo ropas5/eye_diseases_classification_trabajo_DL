@@ -46,7 +46,9 @@ def descarga_y_carga_de_datos(target_size=(512,512), uploader=None):
                     os.system("mv kaggle.json /root/.kaggle/")
                     os.system("chmod 600 /root/.kaggle/kaggle.json")
 
+
             os.system(f"kaggle datasets download -d gunavenkatdoddi/eye-diseases-classification -p {path} --force")
+            print("Cargando imagenes")
         else:
             print("Ejecutando en local")
             os.system(f"kaggle datasets download -d gunavenkatdoddi/eye-diseases-classification -p {path} --force")
