@@ -39,26 +39,65 @@ Para evaluar los modelos de clasificación se usarán:
 |---------------------|------------|--------|----------------|--------------|---------------|---------|---------|---------|
 | Modelo Simple       | 196612     | 1000   | 0.99           | 0.79         | 0.80          | 0.99    | 0.79    | 0.80    |
 | Random Forest       | 47844      | -      | 1              | 0.73         | 0.71          | 1       | 0.76    |  0.75   |
-| CNN Básica          | 3049550    | 50     | 0.96           | 0.80         | 0.8           | 0.96    | 0.79    | 0.80    |
-
+| CNN Básica          | 516        | 100    | 0.48           | 0.49         | 0.47          | 0.48    | 0.49    | 0.47    |
+| CNN 2xConv16        | 2836       |110     |0.51            | 0.51         | 0.523         | 0.48    | 0.48    | 0.49    |
+| CNN 3xConv16        | 5156       |140     | 0.745          | 0.737        | 0.714         | 0.724   | 0.712   | 0.691   |
+| CNN 3xConv16+Dense16| 5428       | 160    | 0.880          | 0.866        | 0.859         | 0.877   | 0.860   | 0.854   |
+| CNN Conv32 + 2xConv16 + Dense16 | 8.180    | 140    | 0.693          |0.694         | 0.668         | 0.666   | 0.667   | 0.642   |
+| CNN 2xConv32 + Conv16 + Dense 16 | 15108 | 100 |
+| VGG(Frozzen) + Dense512 + Dense256 | 15109700 | 70 | 0.866 | 0.850 | 0.853 | 0.865 | 0.847 | 0.850 |
+| VGG + Dense512 + Dense256 | 15109700 | 40 | 0.999 | 0.906 | 0.914 | 0.999 | 0.906 | 0.913 |
+| VGG(Block4) + Dense512 + Dense256 | 8030276 | 40 | 0.998 | 0.915  |0.927 | 0.998 | 0.914 | 0.926 |
+| VGG(Block3) + Dense512 + Dense256 | 1999428 | 40 | 0.686 | 0.690 | 0.685 | 0.669 | 0.672 | 0.669 |
+| VGG(Block2) + Dense512 + Dense256 | 458,564 | 40 |
 
 Estructura del repositorio
-
+```
 eye_diseases_classification_trabajo_DL/
 │
 ├─ README.md
 ├─ requirements.txt
 ├─ .gitignore
-├─ nootbooks/
-│   └─ 01_EDA.ipynb
+├─ notebooks/
+│   ├─ 01_EDA.ipynb
+│   ├─ importacion_preprocesado.py
+│   ├─ modelo_1.ipynb
+│   ├─ modelo_2.ipynb
+│   ├─ modelo_3.ipynb
+│   ├─ modelo_2_simple.ipynb
+│   ├─ modelo_3_simple.ipynb
+│   ├─ modelo_4_simple.ipynb
+│   ├─ modelo_5_simple.ipynb
+│   ├─ modelo_6_simple.ipynb
+│   ├─ modelo_vgg.ipynb
+│   ├─ modelo_vgg_2.ipynb
+│   ├─ modelo_vgg_3.ipynb
+│   ├─ modelo_vgg_4.ipynb
+│   ├─ modelo_vgg_5.ipynb
+│   ├─ modelo_resnet.ipynb
+│   ├─ modelo_mas_complejo.ipynb
+│   └─ modelo_complex_2.ipynb
+├─ models/
+│   ├─ simple_cnn.py
+│   ├─ simple_2_cnn.py
+│   ├─ simple_3_cnn.py
+│   ├─ simple_4_cnn.py
+│   ├─ simple_5_cnn.py
+│   ├─ simple_6_cnn.py
+│   ├─ complejo_cnn.py
+│   ├─ complejo_2_cnn.py
+│   ├─ complejo_vgg_2.py
+│   ├─ complejo_vgg_3.py
+│   └─ vgg_pesos.weights.h5
 ├─ data/
-│   ├─ raw/                # datos descargados/descomprimidos (IGNORADOS por git)
+│   ├─ raw/        # datos descargados/descomprimidos (IGNORADOS por git)
 │   │   └─ dataset/
-│   │        ├─ cataract
-│   │        ├─ diabetic_retinopathy
-│   │        ├─ glaucoma
-│   │        ├─ normal
+│   │       ├─ cataract/
+│   │       ├─ diabetic_retinopathy/
+│   │       ├─ glaucoma/
+│   │       └─ normal/
 │   └─ processed/
-         └─ model_results.csv          
+│       └─ model_results.csv        
+```
 
 Los datos no estan en el repositorio. El codigo los descarga al ejecutarlo la primera vez. Usando la API de kaggle.  **Es necesario tener un API de kaggle una para ejecutar la nootbook en Colab**
