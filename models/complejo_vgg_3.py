@@ -24,7 +24,7 @@ def create_model(input_shape=(128,128,3), num_classes=4, l_rate=0.01, bloque = "
     ])
     
     # 2. Cargar pesos 
-    full_model.load_weights('vgg_pesos.weights.h5')
+    full_model.load_weights('../models/vgg_pesos.weights.h5')
     
     # 3. Ahora recortar la VGG hasta el blocke que queremos
     vgg_reduced = Model(
