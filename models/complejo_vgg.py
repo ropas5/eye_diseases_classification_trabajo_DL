@@ -1,0 +1,40 @@
+# models/simple_cnn.py
+from tensorflow.keras.models import Sequential, Model
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, GlobalAveragePooling2D, Dropout
+from tensorflow.keras.applications import VGG16
+from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.regularizers import l1_l2, l2
+
+def create_model(input_shape=(128,128,3), num_classes=4, l_rate=0.01):
+    # 1. Reconstruir la arquitectura EXACTA con la que guardamos los pesos
+    vgg = VGG16(
+        weights="imagenet",  # Pre-entrenado en ImageNet
+        input_shape=input_shape,
+        include_top=False  # Sin capa de salida (la agregaremos nosotros)
+        )
+    
+    # 2. Conjelamos los pesoso del modelo
+    for layers in vgg.layers:
+        layers.trainable = False
+
+    # 3. Añadimos capas densas para reentrenar el modelo para nuestro problema
+    model = Sequential([
+        vgg,
+        GlobalAveragePooling2D(),
+        Dense(512, activation='relu'),
+        Dropout(0.4),
+        Dense(256, activation='relu'),
+        Dropout(0.3),
+        Dense(num_classes, activation='softmax')
+    ])
+
+    # Los pesos de vgg_reduced ya están cargados porque comparte
+    # los mismos objetos de capa que vgg_base
+    optimizer = Adam(learning_rate=l_rate)
+    model.compile(
+        optimizer=optimizer,
+        loss='categorical_crossentropy',
+        metrics=['accuracy']
+    )
+
+    return model
