@@ -13,8 +13,7 @@ def create_model(input_shape=(128,128,3), num_classes=4, l_rate=0.01):
 
     model.add(GlobalAveragePooling2D())
 
-    # model.add(Dense(16, activation="relu"))
-    # Flatten y capa de salida
+    # Capa de salida
     model.add(Dense(num_classes, activation='softmax'))
 
     # Compilación
