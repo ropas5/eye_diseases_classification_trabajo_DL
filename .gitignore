@@ -3,3 +3,7 @@ data/raw/
 *.code-workspace
 *.json
 *desktop.ini
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
