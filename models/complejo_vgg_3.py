@@ -5,7 +5,7 @@ from tensorflow.keras.applications import VGG16
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.regularizers import l1_l2, l2
 
-def create_model(input_shape=(128,128,3), num_classes=4, l_rate=0.01, bloque = "block4_pool"):
+def create_model(input_shape=(128,128,3), num_classes=4, l_rate=0.01, bloque = "block4_pool", IN_COLAB= False):
     # 1. Reconstruir la arquitectura EXACTA con la que guardamos los pesos
     vgg_base = VGG16(
         weights=None,  # entrenado desde 0
@@ -24,7 +24,10 @@ def create_model(input_shape=(128,128,3), num_classes=4, l_rate=0.01, bloque = "
     ])
     
     # 2. Cargar pesos 
-    full_model.load_weights('../models/vgg_pesos.weights.h5')
+    if IN_COLAB:
+        full_model.load_weights("models/vgg_pesos.weights.h5")
+    if not IN_COLAB:
+        full_model.load_weights('../models/vgg_pesos.weights.h5')
     
     # 3. Ahora recortar la VGG hasta el blocke que queremos
     vgg_reduced = Model(
