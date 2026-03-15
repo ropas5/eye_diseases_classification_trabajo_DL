@@ -55,6 +55,7 @@ Estructura del repositorio
 ```
 eye_diseases_classification_trabajo_DL/
 │
+├─ modelo_final.ipynb
 ├─ README.md
 ├─ requirements.txt
 ├─ .gitignore
@@ -69,6 +70,8 @@ eye_diseases_classification_trabajo_DL/
 │   ├─ modelo_4_simple.ipynb
 │   ├─ modelo_5_simple.ipynb
 │   ├─ modelo_6_simple.ipynb
+│   ├─ modelo_7_simple.ipynb
+│   ├─ modelo_8_simple.ipynb
 │   ├─ modelo_vgg.ipynb
 │   ├─ modelo_vgg_2.ipynb
 │   ├─ modelo_vgg_3.ipynb
