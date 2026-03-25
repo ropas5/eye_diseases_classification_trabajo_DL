@@ -17,8 +17,9 @@ La licencia del dataset es Open Data Commons Open Database License (ODbL) v1.0:
 
 Los datos medicos estan anonimizados y proviene de una base pública.  El resulatado del proyecto es educativo, centrado en el aprendizaje de técnicas de Deep Learning, y no pretende desarrollar una herramienta de diagnóstico clínico real.
 
----
 
+
+## Metodología
 
 La metodología consistira en entrenar dos modelos de clasificación:
 - Un modelo base/baselina (una CNN lo mas simple posible).
@@ -26,7 +27,7 @@ La metodología consistira en entrenar dos modelos de clasificación:
 
 El modelo baselina irá complejizando progresivamente, mientras que el modelo complejo se irá simplificando, con el objetivo de encontrat dos modelos que tengan resultados similares, y así analizar como afecta la complejidad del modelo al rendimiento.
 
- Métricas a utilizar
+### Métricas a utilizar
 
 Para evaluar los modelos de clasificación se usarán:
 - Accuracy: porcentaje de predicciones correctas.
@@ -55,7 +56,7 @@ Para evaluar los modelos de clasificación se usarán:
 ### Comparación modelos 
 ![Comparación Modelos](comparacion_modelos.png)
 
-Estructura del repositorio
+## Estructura del repositorio
 ```
 eye_diseases_classification_trabajo_DL/
 │
