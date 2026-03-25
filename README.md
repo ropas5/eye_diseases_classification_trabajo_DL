@@ -19,6 +19,7 @@ Los datos medicos estan anonimizados y proviene de una base pública.  El resula
 
 ---
 
+
 La metodología consistira en entrenar dos modelos de clasificación:
 - Un modelo base/baselina (una CNN lo mas simple posible).
 - Un modelo complejo.
@@ -50,6 +51,9 @@ Para evaluar los modelos de clasificación se usarán:
 | VGG(Block4) + Dense512 + Dense256 | 8030276 | 40 | 0.999 | 0.906  |0.914 | 0.999 | 0.906 | 0.913 |
 | VGG(Block3) + Dense512 + Dense256 | 1999428 | 40 | 0.998 | 0.915 | 0.927 | 0.998 | 0.914 | 0.926 |
 | VGG(Block2) + Dense512 + Dense256 | 458,564 | 40 | 0.261 | 0.255| 0.236|0.108 |0.103|0.09|
+
+### Comparación modelos 
+![Comparación Modelos](comparacion_modelos.png)
 
 Estructura del repositorio
 ```
